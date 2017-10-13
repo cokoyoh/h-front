@@ -49,6 +49,18 @@
                                 <span v-show="errors.has('body')"
                                       class="help is-danger">{{ errors.first('body')}}</span>
                             </div>
+                            <div class="form-group">
+                                <label class="control-label">Summary</label>
+                                <textarea class="form-control"
+                                          v-validate="'required'"
+                                          v-model="article.summary"
+                                          placeholder="Brief summary of this article. This is what all users will assume the article is about..."
+                                          aria-multiline="true"
+                                          rows="5" id="summary" name="summary">
+                                </textarea>
+                                <span v-show="errors.has('summary')"
+                                      class="help is-danger">{{ errors.first('summary')}}</span>
+                            </div>
                             <div class="row">
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-group">
@@ -81,7 +93,8 @@
                     title: '',
                     body: '',
                     category_id: '',
-                    image: ''
+                    image: '',
+                    summary: ''
                 }
             }
         },

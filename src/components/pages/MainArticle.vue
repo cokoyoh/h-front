@@ -1,6 +1,8 @@
 <template>
     <div class="main-article">
-        <h3>Main Article</h3>
+        <h2>{{postStore.latest_article.title}}</h2>
+        <img :src="'http://localhost:8000/uploads/posts-images/' +   postStore.latest_article.image">
+        <p>{{postStore.latest_article.summary}}</p>
     </div>
 </template>
 
@@ -13,9 +15,13 @@
         created() {
             this.$store.dispatch('setLatestArticle')
         },
+        updated() {
+            this.$store.dispatch('setLatestArticle')
+        },
     }
 </script>
 
-<style>
-
+<style lang="sass">
+    .main-article h2
+        font-weight: 600
 </style>

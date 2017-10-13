@@ -1,6 +1,11 @@
 <template>
     <div class="fitness-articles">
-        <h4>Fitness articles here</h4>
+        <h2>Fitness</h2>
+        <section v-for="article in postStore.fitness_articles">
+            <div class="row">
+                <div class="col-lg-4 col-md-4">{{article.title}}</div>
+            </div>
+        </section>
     </div>
 </template>
 
@@ -13,9 +18,15 @@
         created() {
             this.$store.dispatch('setFitnessArticles')
         },
+        updated() {
+            this.$store.dispatch('setFitnessArticles')
+        },
     }
 </script>
 
-<style>
-
+<style lang="sass">
+    .fitness-articles h2
+        font-weight: 800
+        font-size: 60px
+        text-transform: uppercase
 </style>
